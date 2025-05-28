@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up page</title>
+  <link rel="stylesheet" href="../output.css" />
+</head>
+<body>
+  <section class="font-sans bg-gradient-to-br from-gray-50 to-gray-200 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+            <!-- Header with Church Logo -->
+            <div class="bg-indigo-700 py-8 px-8 text-center relative overflow-hidden">
+                <div class="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-white/10"></div>
+                <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/10"></div>
+                
+                <div class="relative mx-auto w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-4">
+                   <img src="../../images/images.png" alt="" class="rounded-full">
+                </div>
+                <h1 class="text-2xl font-bold text-white">Church of Pentecost</h1>
+                <p class="text-indigo-200 mt-1">Management System Portal</p>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="px-8 py-8">
+                <form id="loginForm" class="space-y-6">
+                    <!-- Full Name -->
+                    <div class="relative">
+                      <input 
+                          type="text" 
+                          id="username" 
+                          class="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cop-primary focus:ring-2 focus:ring-cop-primary/30 placeholder-transparent" 
+                          placeholder="Username"
+                          required
+                      >
+                      <label 
+                          for="username" 
+                          class="absolute left-3 -top-2.5 bg-white px-1 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cop-primary"
+                      >
+                          Full Name
+                      </label>
+                      <div class="absolute right-3 top-3 text-gray-400">
+                          <i class="fas fa-user"></i>
+                      </div>
+                  </div>
+
+                    <!-- Username Field -->
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="username" 
+                            class="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cop-primary focus:ring-2 focus:ring-cop-primary/30 placeholder-transparent" 
+                            placeholder="Username"
+                            required
+                        >
+                        <label 
+                            for="username" 
+                            class="absolute left-3 -top-2.5 bg-white px-1 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cop-primary"
+                        >
+                            Username
+                        </label>
+                        <div class="absolute right-3 top-3 text-gray-400">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Password Field -->
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-cop-primary focus:ring-2 focus:ring-cop-primary/30 placeholder-transparent" 
+                            placeholder="Password"
+                            required
+                        >
+                        <label 
+                            for="password" 
+                            class="absolute left-3 -top-2.5 bg-white px-1 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cop-primary"
+                        >
+                            Password
+                        </label>
+                        <div class="absolute right-3 top-3 text-gray-400">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                id="remember-me" 
+                                name="remember-me" 
+                                type="checkbox" 
+                                class="h-4 w-4 text-cop-primary focus:ring-cop-primary border-gray-300 rounded"
+                            >
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+                        
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-[#4f46e5] hover:text-cop-secondary">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                            type="submit" 
+                            class="w-full py-3 px-4 bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cop-primary hover:shadow-lg transition-all duration-300 hover:from-cop-secondary hover:to-cop-primary"
+                        >
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Social Login Divider -->
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Login Buttons -->
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <a 
+                            href="#" 
+                            class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors duration-300"
+                        >
+                            <i class="fab fa-google text-red-500 mr-2"></i> Google
+                        </a>
+                        
+                        <a 
+                            href="#" 
+                            class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors duration-300"
+                        >
+                            <i class="fab fa-microsoft text-blue-500 mr-2"></i> Microsoft
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Registration Prompt -->
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Already have an account? 
+                        <a href="../../index.html" class="font-medium text-cop-primary hover:text-cop-secondary transition-colors duration-300">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
