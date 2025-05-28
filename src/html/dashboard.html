@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .sidebar {
+        transition: all 0.3s ease;
+      }
+      .sidebar.collapsed {
+        width: 70px;
+      }
+      .sidebar.collapsed .sidebar-text {
+        display: none;
+      }
+      .sidebar.collapsed .logo-text {
+        display: none;
+      }
+      .sidebar.collapsed .nav-item {
+        justify-content: center;
+      }
+      .active-nav {
+        background-color: #3b82f6;
+        color: white;
+      }
+      .active-nav:hover {
+        background-color: #3b82f6 !important;
+      }
+      .avatar {
+        background-color: #e0e7ff;
+        color: #4f46e5;
+      }
+      .donation-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        border-radius: 0.375rem;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .progress-bar {
+        height: 8px;
+        border-radius: 4px;
+        background-color: #e5e7eb;
+      }
+      .progress-fill {
+        height: 100%;
+        border-radius: 4px;
+        background-color: #10b981;
+      }
+      .chart-container {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- container wrapper -->
+    <section class="flex h-screen overflow-hidden">
+      <!-- side bar -->
+      <div class="sidebar bg-indigo-800 text-white w-64 flex flex-col">
+        <div class="p-4 flex items-center space-x-3 border-b border-indigo-700">
+          <div
+            class="w-10 h-10 rounded-full bg-white flex items-center justify-center"
+          >
+            <img
+              src="../../images/images.png"
+              alt="Church of Pentecost Logo"
+              class="w-full rounded-full"
+            />
+          </div>
+          <span class="logo-text text-md font-bold">Church of Pentecost</span>
+        </div>
+
+        <div class="p-4 flex items-center space-x-3 border-b border-indigo-700">
+          <div
+            class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center"
+          >
+            <i class="fas fa-user text-white"></i>
+          </div>
+          <div>
+            <div class="sidebar-text font-medium">Admin User</div>
+            <div class="sidebar-text text-xs text-indigo-200">
+              Administrator
+            </div>
+          </div>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto p-2">
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-tachometer-alt"></i>
+            <span class="sidebar-text">Dashboard</span>
+          </a>
+          <a
+            href="./members.html"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-users"></i>
+            <span class="sidebar-text">Members</span>
+          </a>
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-calendar-alt"></i>
+            <span class="sidebar-text">Events</span>
+          </a>
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-donate"></i>
+            <span class="sidebar-text">Donations</span>
+          </a>
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-church"></i>
+            <span class="sidebar-text">Ministries</span>
+          </a>
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-file-alt"></i>
+            <span class="sidebar-text">Reports</span>
+          </a>
+          <a
+            href="#"
+            class="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1"
+          >
+            <i class="fas fa-cog"></i>
+            <span class="sidebar-text">Settings</span>
+          </a>
+        </nav>
+
+        <div class="p-4 border-t border-indigo-700">
+          <a href="../../index.html"
+            class="flex items-center space-x-3 p-2 rounded-lg hover:bg-indigo-700 w-full"
+          >
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="sidebar-text">Logout</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- main content -->
+      <main class="flex-1 overflow-auto">
+        <!-- Top Navigation bar -->
+        <header
+          class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 right-0 w-full z-50"
+        >
+          <div class="flex items-center space-x-4">
+            <button
+              id="sidebarToggle"
+              class="text-gray-600 hover:text-gray-900"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+            <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <button class="p-2 rounded-full hover:bg-gray-100">
+                <i class="fas fa-bell text-gray-600"></i>
+                <span
+                  class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"
+                ></span>
+              </button>
+            </div>
+            <div class="dropdown relative">
+              <button class="flex items-center space-x-2 focus:outline-none">
+                <div
+                  class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center"
+                >
+                  <i class="fas fa-user text-indigo-600"></i>
+                </div>
+                <span class="hidden md:inline-block">Admin</span>
+                <i class="fas fa-chevron-down text-xs"></i>
+              </button>
+              <div class="dropdown-content mt-2 py-1">
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >Profile</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >Settings</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >Logout</a
+                >
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- introduction section -->
+        <div class="px-10 py-6">
+          <h1 class="text-2xl font-bold tracking-wide">
+            Welcome, Pastor Anthony
+          </h1>
+          <p class="text-gray-600">Here's what's happening at your church</p>
+        </div>
+
+        <!-- summary cards -->
+        <div id="dashboard-content" class="px-3 py-6">
+          <!-- Dashboard Stats -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-6"
+          >
+            <div class="bg-white rounded-lg shadow p-6 flex items-center">
+              <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                <i class="fas fa-users text-xl"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">Total Members</p>
+                <p class="text-2xl font-bold">1,245</p>
+                <p class="text-green-500 text-sm">
+                  <i class="fas fa-arrow-up"></i> 5.2% from last month
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 flex items-center">
+              <div class="p-3 rounded-full bg-green-100 text-green-600 mr-2">
+                <i class="fas fa-donate text-xl"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">This Month's Donations</p>
+                <p class="text-2xl font-bold">$24,580</p>
+                <p class="text-green-500 text-sm">
+                  <i class="fas fa-arrow-up"></i> 12.7% from last month
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 flex items-center">
+              <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-2">
+                <i class="fas fa-calendar-check text-xl"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">Upcoming Events</p>
+                <p class="text-2xl font-bold">8</p>
+                <p class="text-blue-500 text-sm">Next: Sunday Service</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 flex items-center">
+              <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-2">
+                <i class="fas fa-praying-hands text-xl"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">Active Groups</p>
+                <p class="text-2xl font-bold">14</p>
+                <p class="text-green-500 text-sm">3 new groups this month</p>
+              </div>
+            </div>
+          </div>
+
+        <!-- quick actions and upcoming events -->
+        <div class="flex flex-col lg:flex-row gap-3 mb-5">
+          <!-- quick actions -->
+          <div class="flex-[1.5] bg-white rounded-lg shadow p-4">
+            <p class="text-lg font-semibold">Quick Actions</p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 py-4">
+              <!-- members -->
+              <a href="#" class="shadow-sm p-4 rounded-lg hover:shadow-xl transition-all">
+                <div>
+                  <i class="fas fa-users text-lg bg-[#3c82f6]  text-white rounded-xl px-2 py-3 text-center"></i>
+                  <h1 class="text-md font-semibold py-2">Members Management</h1>
+                  <p class="text-slate-400 font-light">Manage members profiles, groups, and more</p>
+                </div>
+              </a>
+
+               <!-- Events -->
+               <a href="#" class="shadow-sm p-4 rounded-lg hover:shadow-xl transition-all">
+                <div>
+                  <i class="fas fa-calendar-check text-lg bg-[#22c55d]  text-white rounded-xl px-3 py-3 text-center"></i>
+                  <h1 class="text-md font-semibold py-2">Events </h1>
+                  <p class="text-slate-400 font-light">Schedule and manage church events</p>
+                </div>
+              </a>
+
+              <!-- Donations -->
+              <a href="#" class="shadow-sm p-4 rounded-lg hover:shadow-xl transition-all">
+                <div>
+                  <i class="fas fa-donate text-lg bg-[#f59e0c]  text-white rounded-xl px-3 py-3 text-center"></i>
+                  <h1 class="text-md font-semibold py-2">Donations </h1>
+                  <p class="text-slate-400 font-light">Manage donations and donations reports</p>
+                </div>
+              </a>
+
+                <!-- Communication -->
+                <a href="#" class="shadow-sm p-4 rounded-lg hover:shadow-xl transition-all">
+                  <div>
+                    <i class="fas fa-donate text-lg bg-purple-500  text-white rounded-xl px-3 py-3 text-center"></i>
+                    <h1 class="text-md font-semibold py-2">Communication </h1>
+                    <p class="text-slate-400 font-light">Send announcements, emails and SMS to members</p>
+                  </div>
+                </a>
+
+                  <!-- Groups and ministries -->
+              <a href="#" class="shadow-sm p-4 rounded-lg hover:shadow-xl transition-all">
+                <div>
+                  <i class="fas fa-users text-lg bg-indigo-500  text-white rounded-xl px-2 py-3 text-center"></i>
+                  <h1 class="text-md font-semibold py-2">Groups & ministries </h1>
+                  <p class="text-slate-400 font-light">Organize church ministries and small groups</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="flex-[0.7] bg-white rounded-lg shadow h-[60vh]">
+            <p class="text-lg font-semibold px-5 pt-5">Upcoming Events</p>
+            <p class="text-gray-400 px-5">Schedule for the week</p>
+            <!-- Events Container -->
+            <div class="border-none">
+              
+            </div>
+          </div>
+        </div>
+
+         
+          <!-- Recent Members -->
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-semibold">Recent Members</h2>
+              <button class="text-blue-600 hover:text-blue-800 text-sm">
+                View All
+              </button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Join Date
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Status
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Group
+                    </th>
+                    <th
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <img
+                            class="h-10 w-10 rounded-full"
+                            src="https://randomuser.me/api/portraits/women/12.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">
+                            Sarah Johnson
+                          </div>
+                          <div class="text-sm text-gray-500">
+                            sarah@example.com
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
+                      May 15, 2023
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >Active</span
+                      >
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
+                      Women's Bible Study
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <a href="#" class="text-blue-600 hover:text-blue-900"
+                        >View</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <img
+                            class="h-10 w-10 rounded-full"
+                            src="https://randomuser.me/api/portraits/men/42.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">
+                            Michael Brown
+                          </div>
+                          <div class="text-sm text-gray-500">
+                            michael@example.com
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
+                      May 14, 2023
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >Active</span
+                      >
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
+                      Men's Fellowship
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <a href="#" class="text-blue-600 hover:text-blue-900"
+                        >View</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                          <img
+                            class="h-10 w-10 rounded-full"
+                            src="https://randomuser.me/api/portraits/women/33.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">
+                            Emily Davis
+                          </div>
+                          <div class="text-sm text-gray-500">
+                            emily@example.com
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
+                      May 12, 2023
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                        >Pending</span
+                      >
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
+                      Youth Group
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <a href="#" class="text-blue-600 hover:text-blue-900"
+                        >View</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <script>
+      // Toggle sidebar
+      document
+        .getElementById("sidebarToggle")
+        .addEventListener("click", function () {
+          document.querySelector(".sidebar").classList.toggle("collapsed");
+        });
+
+      // Show add donation modal
+      document
+        .getElementById("addDonationBtn")
+        .addEventListener("click", function () {
+          document
+            .getElementById("addDonationModal")
+            .classList.remove("hidden");
+        });
+
+      // Close modal
+      document
+        .getElementById("closeDonationModal")
+        .addEventListener("click", function () {
+          document.getElementById("addDonationModal").classList.add("hidden");
+        });
+
+      // Close modal with cancel button
+      document
+        .getElementById("cancelAddDonation")
+        .addEventListener("click", function () {
+          document.getElementById("addDonationModal").classList.add("hidden");
+        });
+
+      // Close modal when clicking outside
+      document
+        .getElementById("addDonationModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            this.classList.add("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>
