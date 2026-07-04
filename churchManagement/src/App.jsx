@@ -6,6 +6,7 @@ import Members from './pages/Members';
 import Events from './pages/Events';
 import Finance from './pages/Finance';
 import Ministries from './pages/Ministries';
+import Reports from './pages/Reports';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/finance" element={<Finance />} />
         <Route path="/ministries" element={<Ministries />} />
+        <Route path="/reports" element={<Reports />} />
       </Routes>
     </BrowserRouter>
   );

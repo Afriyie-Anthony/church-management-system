@@ -124,10 +124,10 @@ export default function Ministries() {
             <i className="fas fa-church"></i>
             <span className="sidebar-text">Ministries</span>
           </Link>
-          <a href="#" className="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1">
+          <Link to="/reports" className="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1">
             <i className="fas fa-file-alt"></i>
             <span className="sidebar-text">Reports</span>
-          </a>
+          </Link>
           <a href="#" className="nav-item flex items-center space-x-3 p-3 rounded-lg hover:bg-indigo-700 mb-1">
             <i className="fas fa-cog"></i>
             <span className="sidebar-text">Settings</span>
