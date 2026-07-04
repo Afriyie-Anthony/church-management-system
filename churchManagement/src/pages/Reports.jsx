@@ -183,8 +183,8 @@ export default function Reports() {
                   <option>This Year</option>
                 </select>
               </div>
-              <div className="h-80 w-full">
-                <ResponsiveContainer width="100%" height="100%">
+              <div className="w-full">
+                <ResponsiveContainer width="99%" height={320}>
                   <LineChart data={financeData}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
                     <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#6b7280', fontSize: 12}} dy={10} />
@@ -207,8 +207,8 @@ export default function Reports() {
                 <h3 className="text-lg font-bold text-gray-800">Monthly Attendance</h3>
                 <button className="text-indigo-600 text-sm font-medium hover:text-indigo-800">View Full List</button>
               </div>
-              <div className="h-80 w-full">
-                <ResponsiveContainer width="100%" height="100%">
+              <div className="w-full">
+                <ResponsiveContainer width="99%" height={320}>
                   <BarChart data={attendanceData}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
                     <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#6b7280', fontSize: 12}} dy={10} />
@@ -229,8 +229,8 @@ export default function Reports() {
               <p className="text-gray-500 text-sm mb-6">Breakdown of member participation across different ministries.</p>
               
               <div className="flex flex-col md:flex-row items-center justify-center">
-                <div className="h-80 w-full md:w-1/2 flex justify-center">
-                  <ResponsiveContainer width="100%" height="100%">
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <ResponsiveContainer width="99%" height={320}>
                     <PieChart>
                       <Pie
                         data={demographicsData}
